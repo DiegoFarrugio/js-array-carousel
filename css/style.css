@@ -1,19 +1,19 @@
-main > div > .canvas {
-    height: 500px;
+.img_container{
+    width: 500px;
+    margin: 0 auto;
+    position: relative;
 }
-    
-    img{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: 0% 30%;
-        display: block;
-    }
-    
-    .active{
-        display: block;
-    }
-    
-    .hidden{
-        display: none;
-    }
+
+
+img{
+    width: 100%;
+    height: 400px;
+}
+
+.info_img{
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    color: white;
+}
+
