@@ -1,18 +1,19 @@
-.containerImg{
-    width: 100%;
-    height: 100%;
+main > div > .canvas {
+    height: 500px;
 }
-
-.dimension-foto{
-    width: 500px;
-    height: 50vh;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-}
-
-button{
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-}
+    
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 0% 30%;
+        display: block;
+    }
+    
+    .active{
+        display: block;
+    }
+    
+    .hidden{
+        display: none;
+    }

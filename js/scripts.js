@@ -1,28 +1,84 @@
-//MILESTONE 1
-// - Creiamo il markup statico
-// - Costruiamo il container e inseriamo un'immagine grande al centro
-// - Avremo così la struttura base e gli stili pronti per poterci poi concentrare solamente sull'aspetto logico.
+// dichiariamo una variabile 'let' indirizzata alla classe delle img
+
+let switchImg;
+
+/* Inseriamo le singole img in delle variabili con un template Literl con il quale 
+integriamo la variabile della classe */
+const image1 =  document.querySelector('.canvas').innerHTML = `
+<img src="img/01.webp" alt="" ${switchImg}>
+`;
+const image2 =  document.querySelector('.canvas').innerHTML = `
+<img src="img/02.webp" alt="" ${switchImg}>
+`;
+const image3 =  document.querySelector('.canvas').innerHTML = `
+<img src="img/03.webp" alt="" ${switchImg}>
+`;
+const image4 =  document.querySelector('.canvas').innerHTML = `
+<img src="img/04.webp" alt="" ${switchImg}>
+`;
+const image5 =  document.querySelector('.canvas').innerHTML = `
+<img src="img/05.webp" alt="" ${switchImg}>
+`;
 
 
-//MILESTONE 2
-//Rimuoviamo tutto il markup statico e inseriamo tutte le immagini dinamicamente servendoci dell'array fornito e un semplice ciclo for che concatena un template literal.
-//Tutte le immagini saranno nascoste, tranne la prima, che avrà una classe specifica che la renderà visibile.
-//Al termine di questa fase ci ritroveremo con lo stesso slider stilato nella milestone 1, ma costruito dinamicamente attraverso JavaScript.
+// array delle img da inserire, posta in variabili
+const imgList = [ 
+     ` ${image1} ` ,
+     ` ${image2} ` ,
+     ` ${image3} ` ,
+     ` ${image4} ` ,
+     ` ${image5} ` 
+      ]
 
 
-const containerImg = document.querySelector('.containerImg');
-console.log('container Img', containerImg, containerImg);
+document.querySelector('.canvas').innerHTML = (imgList[0])
 
-const arrayImgHtml = [
-    '<img class="dimension-foto d-block" src="img/01.webp" alt="">',
-    '<img class="dimension-foto d-none" src="img/02.webp" alt="">',
-    '<img class="dimension-foto d-none" src="img/03.webp" alt="">',
-    '<img class="dimension-foto d-none" src="img/04.webp" alt="">',
-    '<img class="dimension-foto d-none" src="img/05.webp" alt="">'
-];
 
-console.log(arrayImgHtml), typeof arrayImgHtml;
+// Faccio questo per visualizzare tutte le img nel DOM
+let counter = 0
+let i
 
-for (let i = 0; i < arrayImgHtml.length; i++){
-    containerImg.innerHTML += containerImg [i];
-}
+// associo variabile ai bottoni
+const buttonRight = document.getElementById('button-right');
+const buttonLeft = document.getElementById('button-left');
+
+
+
+
+// per andare avanti aggiungiamo l'evento al button
+buttonRight.addEventListener('click', function(){
+
+    counter += 1 ;
+    console.log(counter)
+
+    //ciclo for che riconosce gli indici dell'array
+    for ( i = 0; i < imgList.length; i++){
+
+        if (counter == i){
+
+            document.querySelector('.canvas').innerHTML = (imgList[i])
+
+        
+        }
+
+    }
+
+})
+
+
+buttonLeft.addEventListener('click', function(){
+
+    counter -= 1 
+    console.log(counter)
+
+    for (i = imgList.length - 1 ; i >= 0; i--){
+
+        if (counter == i){
+
+            document.querySelector('.canvas').innerHTML = (imgList[i])
+
+        }
+
+    }
+
+})
